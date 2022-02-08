@@ -11,12 +11,12 @@ def index(request):
         form = CityForm(request.POST)
         form.save()
 
-    form = CityForm
+    form = CityForm()
 
     weather_data = []
 
     for city in cities:
-        city_weather = requests.get(url.format(city)).json()
+        city_weather = requests.get(url.format(city.name)).json()
 
         weather = {
             'city': city,

@@ -1,73 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    {% load static %}
+    <!-- Site made with Mobirise Website Builder v5.6.0, https://mobirise.com -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>What's the weather like?</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v5.6.0, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="{% static 'assets/images/weather-png-pic.png" type="image/x-icon' %}">"
+    <meta name="description" content="">
+
+
+    <title>what's the weather like?</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/parallax/jarallax.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+    <link rel="preload"
+          href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
+          as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap">
+    </noscript>
+    <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+
+
 </head>
 <body>
-    <section class="hero is-primary">
-        <div class="hero-body">
+
+    <section data-bs-version="5.1" class="form1 cid-sWFfdlm1G3 mbr-fullscreen mbr-parallax-background" id="form1-5">
+
+
+        <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(255, 255, 255);"></div>
             <div class="container">
-                <h1 class="title">
-                    What's the weather like?
-                </h1>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-offset-4 is-4">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="field has-addons">
-                            <div class="control is-expanded">
-                                {{ form.name }}
-                            </div>
-                            <div class="control">
-                                <button class="button is-info">
-                                    Add City
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-offset-4 is-4">
-                    {% for weather in weather_data %}
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-left">
-                                <figure class="image is-50x50">
-                                    <img src="http://openweathermap.org/img/w/10d.png" alt="Image">
-                                </figure>
-                            </div>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>
-                                        <span class="title">{{ weather.city }}</span>
-                                        <br>
-                                        <span class="subtitle">{{ weather.temperature }}</span>
-                                        <br> {{ weather.description }}
-                                    </p>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 mx-auto mbr-form">
+                        <form method="POST" class="mbr-form form-with-styler">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                                    Oops...! some problem!
                                 </div>
                             </div>
-                        </article>
+                            <div class="dragArea row">
+                                <div class="col-12">
+                                    <h1 class="mbr-section-title mb-4 mbr-fonts-style align-center display-2">
+                                        <strong>WEATHER</strong></h1>
+                                </div>
+                                <div class="col-12">
+                                    <p class="mbr-text mbr-fonts-style mb-5 align-center display-7">what's the weather like?<br>
+                                    </p>
+                                </div>
+                                <div class="col-md col-12 form-group mb-3" data-for="name">
+                                    <input type="text" name="name" placeholder="City" data-form-field="Name" class="form-control" id="name-form1-5">
+                                </div>
+
+                                <div class="mbr-section-btn col-12 col-md-auto">
+                                    <button type="submit" class="btn btn-primary display-4">Add</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    {% endfor %}
                 </div>
             </div>
-        </div>
-    </section>
-    <footer class="footer">
-    </footer>
+                <div class="container">
+                <div class="columns">
+                    <div class="column is-offset-4 is-4">
+                        {% for weather in weather_data %}
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-left">
+                                    <figure class="image is-50x50">
+                                        <img src="http://openweathermap.org/img/w/10d.png" alt="Image">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <span class="title">{{ weather.city }}</span>
+                                            <br>
+                                            <span class="subtitle">{{ weather.temperature }}</span>
+                                            <br> {{ weather.description }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        <footer class="footer">
+        </footer>
+        </section>
+
+
 </body>
 </html>
